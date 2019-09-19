@@ -21,8 +21,13 @@ let triviaQuestions = [
 
 ]
 const nextQuestion = _ => {
-    currentQuestion++
-    grabQuestion()
+    
+    if(triviaQuestions.length - 1 === currentQuestion){
+        console.log('Game Over')
+    }else{
+        currentQuestion++
+        grabQuestion()
+    }
 }
 const countDown = _ => {
     count --
@@ -31,6 +36,7 @@ const countDown = _ => {
     if( count === 0){
         clearInterval(time)
         incorrect++
+        nextQuestion()
     }
 }
 
